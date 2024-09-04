@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "jumba-a-art-backend": {
+      "main": "src/jumba-a-art-backend/main.mo",
+      "type": "motoko"
+    },
+    "jumba-a-art-frontend": {
+      "dependencies": [
+        "jumba-a-art-backend"
+      ],
+      "source": [
+        "src/jumba-a-art-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "jumba-a-art-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
