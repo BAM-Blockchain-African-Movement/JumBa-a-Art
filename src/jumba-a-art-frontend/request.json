@@ -1,0 +1,3 @@
+{
+    "request" : "function handleSubmit(event) {event.preventDefault();const name = event.target.elements.name.value;jumba_a_art_backend.greet(name).then((greeting) => {setGreeting(greeting);});return false;}"
+}
