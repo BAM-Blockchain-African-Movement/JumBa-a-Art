@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -8,7 +9,8 @@ const App = () => {
     <>
       <div className="bg-[#F6F7F8] py-4 px-4">
         <Navbar />
-        <Hero /> 
+        <Hero />
+        <Footer/>
       </div>
     </>
   );
