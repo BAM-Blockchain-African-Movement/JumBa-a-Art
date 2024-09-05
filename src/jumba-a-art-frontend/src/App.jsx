@@ -7,7 +7,7 @@ const App = () => {
   return (
     // <div className=''>App</div>
     <>
-      <div className="bg-[#F6F7F8] py-4 px-4">
+      <div className="bg-[#F6F7F8] max-h-screen py-11 px-4">
         <Navbar />
         <Hero />
         <Footer/>
