@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import CreateNftForm from "./components/CreateNftForm";
+import NftListing from "./components/NftListing";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Navbar />
         {/* <Hero /> */}
         {/* <CreateNftForm /> */}
+        <NftListing />
         <Footer/>
       </div>
     </>

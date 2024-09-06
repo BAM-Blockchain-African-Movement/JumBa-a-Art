@@ -4,7 +4,7 @@ import { IoIosJet } from "react-icons/io";
 
 const Hero = () => {
   return (
-    <section className='bg-white rounded-lg py-11 mb-11 flex justify-around align-middle'>
+    <section className='bg-white rounded-lg mb-11 flex justify-around items-center min-h-screen'>
         <div>
             <h1 className='text-start text-5xl font-bold text-[#343434] mb-11 leading-1'>Discover <br/> African Digital Art & <br/> Collect 
                 <span className='text-[#ff8c27]'> Jumba'a Art</span>
