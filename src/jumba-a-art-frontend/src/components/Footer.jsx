@@ -1,15 +1,14 @@
 import React from "react";
-import logo from "../assets/logo-jumba-miniature.svg";
 
-const Navbar = () => {
+const Footer = () => {
   return (
-    <nav className="bg-white rounded-full px-10 mb-11">
+    <footer className="bg-white rounded-full px-10">
       <div className="flex h-20 items-center justify-between">
         <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
           {/* <!-- Logo --> */}
-          <a className="flex flex-shrink-0 items-center mr-4" href="/">
-            <img className="h-10 w-auto" src={logo} alt="Logo Jumba'a art" />
-          </a>
+          <p className="text-[#5c5c5c] text-sm flex flex-shrink-0 items-center mr-4">
+            © 2024 - 2025 jumba'a-art.com. All rights reserved.
+          </p>
         </div>
 
         {/* Pages link */}
@@ -18,24 +17,24 @@ const Navbar = () => {
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
             href="/"
           >
-            Jumba'a Market
+            Home
           </a>
           <a
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
             href="/"
           >
-            Create Jumba'a Art
+            Contact
           </a>
           <a
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
             href="/"
           >
-            My Jumba'a
+            Help
           </a>
         </div>
       </div>
-    </nav>
+    </footer>
   );
 };
 
-export default Navbar;
+export default Footer;
