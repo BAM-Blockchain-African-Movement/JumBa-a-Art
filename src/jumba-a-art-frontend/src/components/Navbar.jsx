@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/logo-jumba-miniature.svg";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -7,31 +8,31 @@ const Navbar = () => {
       <div className="flex h-20 items-center justify-between">
         <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
           {/* <!-- Logo --> */}
-          <a className="flex flex-shrink-0 items-center mr-4" href="/">
+          <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
             <img className="h-10 w-auto" src={logo} alt="Logo Jumba'a art" />
-          </a>
+          </NavLink>
         </div>
 
         {/* Pages link */}
         <div className="flex flex-2 items-center justify-center">
-          <a
+          <NavLink
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
-            href="/"
+            to="/jumbamarket"
           >
             Jumba'a Market
-          </a>
-          <a
+          </NavLink>
+          <NavLink
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
-            href="/"
+            to="/createjumba"
           >
             Create Jumba'a Art
-          </a>
-          <a
+          </NavLink>
+          <NavLink
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
-            href="/"
+            to="/myjumba"
           >
             My Jumba'a
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>
