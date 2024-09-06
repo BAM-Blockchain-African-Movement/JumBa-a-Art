@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 
 const Footer = () => {
   return (
@@ -13,24 +15,24 @@ const Footer = () => {
 
         {/* Pages link */}
         <div className="flex flex-2 items-center justify-center">
-          <a
+          <NavLink
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
-            href="/"
+            to="/"
           >
             Home
-          </a>
-          <a
+          </NavLink>
+          <NavLink
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
-            href="/"
+            to="/contact"
           >
             Contact
-          </a>
-          <a
+          </NavLink>
+          <NavLink
             className="flex flex-shrink-0 items-center mx-2 px-4 py-2 font-semibold text-sm text-[#343434]"
-            href="/"
+            to="/help"
           >
             Help
-          </a>
+          </NavLink>
         </div>
       </div>
     </footer>
