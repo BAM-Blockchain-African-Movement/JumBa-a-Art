@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import CreateNftForm from "./components/CreateNftForm";
 import NftListing from "./components/NftListing";
+import NftListings from "./components/NftListings";
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
         <Navbar />
         {/* <Hero /> */}
         {/* <CreateNftForm /> */}
-        <NftListing />
+        {/* <NftListing /> */}
+        <NftListings />
         <Footer/>
       </div>
     </>
