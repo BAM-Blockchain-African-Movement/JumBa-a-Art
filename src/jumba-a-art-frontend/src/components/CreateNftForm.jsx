@@ -1,4 +1,6 @@
 import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CreateNftForm = () => {
   const [title, setTitle] = useState("");
@@ -14,7 +16,7 @@ const CreateNftForm = () => {
     setPrivatekey("lapquueooqpdjhhduyyuyqindjnjdhhuh");
   };
 
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -30,9 +32,9 @@ const CreateNftForm = () => {
 
     console.log(newNFT);
 
-    //toast.success("Job added successfuly :)");
+    toast.success("Jumba'a minted successfuly :)");
 
-    //return navigate("/jobs");
+    return navigate("/myjumba");
   };
 
   return (
