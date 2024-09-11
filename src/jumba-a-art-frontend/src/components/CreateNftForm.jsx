@@ -1,6 +1,7 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+//import { jumba_a_art_backend } from "../../../declarations/jumba-a-art-backend";
 
 const CreateNftForm = () => {
   const [title, setTitle] = useState("");
@@ -12,11 +13,12 @@ const CreateNftForm = () => {
   const [image, setImage] = useState("");
 
   const createSecretKeys = () => {
-    setPublickey("qwppqoaaaziiiuejjlakjkkkk");
-    setPrivatekey("lapquueooqpdjhhduyyuyqindjnjdhhuh");
+    setPublickey("QRUIIIDROVUWG2ZAMJZG653OEBTG66BANJ2W24DTEBXXMZLSEB2GQZJANRQXU6JAMRXWOLQ0");
+    setPrivatekey("KRUGKIDROVUWG2ZAMJZG653OEBTG66BANJ2W24DTEBXXMZLSEB2GQZJANRQXU6JAMRXWOLQ=");
   };
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -30,7 +32,19 @@ const CreateNftForm = () => {
       publickey: publickey,
     };
 
-    console.log(newNFT);
+    useEffect(() => {
+      const fetchNfts = () => {
+        try {
+          // const data = jumba_a_art_backend.getAllTokens();
+        } catch (error) {
+          console.log("Error fetching jobs data : " + error);
+        } finally {
+          console.log("end fetching jobs data : " + error);
+        }
+      };
+  
+      fetchNfts();
+    }, []);
 
     toast.success("Jumba'a minted successfuly :)");
 
