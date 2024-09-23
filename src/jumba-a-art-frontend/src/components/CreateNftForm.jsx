@@ -5,23 +5,20 @@ import { toast } from "react-toastify";
 
 const CreateNftForm = () => {
   const [title, setTitle] = useState("");
-  const [publickey, setPublickey] = useState("");
-  const [privatekey, setPrivatekey] = useState("");
   const [owner, setOwner] = useState("");
   const [identifier, setIdentifier] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
 
-  const createSecretKeys = () => {
-    setPublickey("QRUIIIDROVUWG2ZAMJZG653OEBTG66BANJ2W24DTEBXXMZLSEB2GQZJANRQXU6JAMRXWOLQ0");
-    setPrivatekey("KRUGKIDROVUWG2ZAMJZG653OEBTG66BANJ2W24DTEBXXMZLSEB2GQZJANRQXU6JAMRXWOLQ=");
-  };
-
   const navigate = useNavigate();
   
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
+
+    console.log("11111: " + image);
+    
+    //const imageDataBytes=[new Uint8Array(await image.buffer())];
 
     const newNFT = {
       title: title,
@@ -29,78 +26,22 @@ const CreateNftForm = () => {
       identifier: identifier,
       price: price,
       image: image,
-      publickey: publickey,
     };
 
-    useEffect(() => {
-      const fetchNfts = () => {
-        try {
-          // const data = jumba_a_art_backend.getAllTokens();
-        } catch (error) {
-          console.log("Error fetching jobs data : " + error);
-        } finally {
-          console.log("end fetching jobs data : " + error);
-        }
-      };
-  
-      fetchNfts();
-    }, []);
-
     toast.success("Jumba'a minted successfuly :)");
+    
+    console.log(newNFT);
 
-    return navigate("/myjumba");
+    //return navigate("/myjumba");
   };
 
   return (
-    <div className="container m-auto max-w-2xl mb-11">
+    <div className="container m-auto max-w-2xl min-h-screen align-middle">
       <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
         <h2 className="text-3xl text-center font-semibold text-[#343434] mb-6">
           Create <span className="text-[#ff8c27]">Jumba'a Art</span>
         </h2>
-        <h3 className="text-2xl mb-5 text-[#343434]">Generate keys</h3>
-        <div className="mb-4">
-          <label
-            htmlFor="company"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Public key
-          </label>
-          <input
-            type="text"
-            id="publickey"
-            name="publickey"
-            className="border rounded w-full py-2 px-3"
-            value={publickey}
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="company_description"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Private key (N.B Copy and save your secret key)
-          </label>
-          <input
-            type="text"
-            id="privatekey"
-            name="privatekey"
-            className="border rounded w-full py-2 px-3"
-            value={privatekey}
-          />
-        </div>
-        <div>
-          <button
-            onClick={createSecretKeys}
-            className="bg-[#fb9943] text-white font-bold py-2 px-4 rounded-md w-full focus:outline-none focus:shadow-outline"
-          >
-            Generate your keys
-          </button>
-        </div>
-        <br /> <br />
         <form onSubmit={submitForm}>
-          <h3 className="text-2xl mb-5 text-[#343434]">
-            Jumba'a art informations
-          </h3>
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -187,11 +128,9 @@ const CreateNftForm = () => {
               id="image"
               name="image"
               className="border rounded w-full py-2 px-3 mb-2"
-              placeholder="select your jumba'a image"
               required
-              value={image}
               onChange={(e) => {
-                setImage(e.target.value);
+                setImage(e.target.files[0]);
               }}
             />
           </div>
