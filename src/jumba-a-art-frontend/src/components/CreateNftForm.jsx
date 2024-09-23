@@ -1,36 +1,33 @@
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-//import { jumba_a_art_backend } from "../../../declarations/jumba-a-art-backend";
+import { jumba_a_art_backend } from "../../../declarations/jumba-a-art-backend";
 
 const CreateNftForm = () => {
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
   const [identifier, setIdentifier] = useState("");
   const [price, setPrice] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState();
+  const [nftPrincipal,setNftPrincipal]=useState("");
 
   const navigate = useNavigate();
   
 
   const submitForm = async (e) => {
     e.preventDefault();
-
-    console.log("11111: " + image);
     
-    //const imageDataBytes=[new Uint8Array(await image.buffer())];
+    const imageDataBytes = [...new Uint8Array (await image.arrayBuffer())];
 
-    const newNFT = {
-      title: title,
-      owner: owner,
-      identifier: identifier,
-      price: price,
-      image: image,
-    };
+    console.log("1111: " + imageDataBytes);
+
+    let newNFTID = await jumba_a_art_backend.mint(imageDataBytes,title);
+    
+    setNftPrincipal(newNFTID.toText());
+
+    console.log(nftPrincipal);
 
     toast.success("Jumba'a minted successfuly :)");
-    
-    console.log(newNFT);
 
     //return navigate("/myjumba");
   };
