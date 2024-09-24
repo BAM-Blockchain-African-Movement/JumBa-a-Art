@@ -7,7 +7,7 @@ const CreateNftForm = () => {
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
   const [identifier, setIdentifier] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [image, setImage] = useState();
   const [nftPrincipal, setNftPrincipal] = useState("");
 
@@ -18,8 +18,9 @@ const CreateNftForm = () => {
     e.preventDefault();
 
     const imageDataBytes = [...new Uint8Array(await image.arrayBuffer())];
-    
-    let newNFTID = await jumba_a_art_backend.mint(imageDataBytes, title);
+    const natPrice = BigInt(price);
+
+    let newNFTID = await jumba_a_art_backend.mint(imageDataBytes, title, owner, identifier, natPrice);
     
     setNftPrincipal(newNFTID.toText());
   };
@@ -102,7 +103,6 @@ const CreateNftForm = () => {
                 id="price"
                 name="price"
                 className="border rounded w-full py-2 px-3 mb-2"
-                placeholder="eg. 150 ICP"
                 required
                 value={price}
                 onChange={(e) => {

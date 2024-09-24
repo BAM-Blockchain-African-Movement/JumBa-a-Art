@@ -17,11 +17,11 @@ actor OpenD {
     var mapOfListings = HashMap.HashMap<Principal,Listing> (1,Principal.equal,Principal.hash);
     
     //function to mint nft from frontend
-    public shared(msg) func mint(imgData:[Nat8],name:Text): async Principal{
+    public shared(msg) func mint(imgData:[Nat8],name:Text,ownerName:Text,identifier:Text,price:Nat): async Principal{
         let owner=msg.caller;//returns canisterid owner of main actor
         //experimental cycles for minting
         Cycles.add(100_500_000_000);
-        let newNFT= await NFTActorClass.NFT(name,owner,imgData);//create 
+        let newNFT= await NFTActorClass.NFT(name,owner,imgData,ownerName,identifier,price);//create 
         let newNFTPrincipal=await newNFT.getCanisterId();//get id
         //store
         mapOfNFT.put(newNFTPrincipal,newNFT);

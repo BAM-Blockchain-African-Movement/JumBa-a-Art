@@ -1,13 +1,23 @@
 import Debug "mo:base/Debug";
 import Principal "mo:base/Principal";
+import Nat "mo:base/Nat";
 //actor class to create programitacally
-actor class NFT(name:Text,owner:Principal,content:[Nat8])=this{
+actor class NFT(name:Text,owner:Principal,content:[Nat8],ownerName:Text,identifier:Text,price:Nat)=this{
     private let itemName=name;
     private var nftOwner=owner;
     private let imageBytes=content;
 
     public query func getName():async Text{
         return name;
+    };
+    public query func getOwnerName():async Text{
+        return ownerName;
+    };
+    public query func getIdentifier():async Text{
+        return identifier;
+    };
+    public query func getPrice():async Nat{
+        return price;
     };
     public query func getOwner():async Principal{
         return owner;
