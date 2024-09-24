@@ -2,7 +2,7 @@ import {React,useEffect, useState} from "react";
 import NftListings from "../components/NftListings";
 import {jumba_a_art_backend} from "../../../declarations/jumba-a-art-backend";
 
-const JumbaMarketPage = () => {
+const JumbaMarketPage = ({user_id}) => {
   const title = "Browse Jumba'a Marketplace";
   const [listnfts, setListNfts] = useState([]);
 

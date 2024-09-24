@@ -3,7 +3,7 @@ import nftImage from "../assets/NFT-jumba.png";
 import {HttpAgent,Actor} from "@dfinity/agent";
 import {idlFactory, jumba_a_art_backend} from "../../../declarations/jumba-a-art-backend";
 
-const NftListing = () => {  
+const NftListing = ({nft}) => {  
 
   return (
     <div className="rounded-xl shadow-lg">

@@ -139,6 +139,8 @@ const CreateNftForm = () => {
     );
 
   } else {
+
+    console.log(nftPrincipal);
     
     toast.success("Jumba'a minted successfuly :)");
     return navigate("/myjumba");
